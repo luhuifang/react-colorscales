@@ -23,6 +23,7 @@ class App extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.handleLog = this.handleLog.bind(this);
+    this.handlePreviousColorscale = this.handlePreviousColorscale.bind(this);
     this.toggleColorscalePicker = this.toggleColorscalePicker.bind(this);
     this.recolorData = this.recolorData.bind(this);
 
@@ -33,6 +34,7 @@ class App extends Component {
       layout: map.layout,
       plotType: "map",
       log: false,
+      previousColorscale : DEFAULT_SCALE,
     };
   }
 
@@ -67,6 +69,12 @@ class App extends Component {
     });
   }
 
+  handlePreviousColorscale = newcs => {
+    this.setState({
+      previousColorscale : newcs
+    });
+  }
+
   toggleColorscalePicker = () => {
     console.log(this.state);
     this.setState({ showColorscalePicker: !this.state.showColorscalePicker });
@@ -95,8 +103,10 @@ class App extends Component {
           <ColorscalePicker
             onChange={this.onChange}
             handleLog={this.handleLog}
+            handlePreviousColorscale={this.handlePreviousColorscale}
             colorscale={this.state.colorscale}
             log={this.state.log}
+            previousColorscale={this.state.previousColorscale}
             width={300}
           />
         )}

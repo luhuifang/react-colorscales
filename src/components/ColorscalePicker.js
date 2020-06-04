@@ -75,7 +75,7 @@ export default class ColorscalePicker extends Component {
     this.state = {
       colorscale: this.props.colorscale || DEFAULT_SCALE,
       nSwatches: (this.props.colorscale || DEFAULT_SCALE).length,
-      previousColorscale: this.props.colorscale || DEFAULT_SCALE,
+      previousColorscale: this.props.previousColorscale || DEFAULT_SCALE,
       colorscaleType:
         this.props.colorscaleType || this.props.initialColorscaleType,
       log: this.props.log || false,
@@ -118,6 +118,7 @@ export default class ColorscalePicker extends Component {
 
   toggleLog = () => {
     const newlog = !this.state.log;
+    console.log(newlog);
     const cs = getColorscale(
       this.state.previousColorscale,
       this.state.nSwatches,
@@ -174,6 +175,7 @@ export default class ColorscalePicker extends Component {
       });
     }
     this.props.onChange(cs, this.state.colorscaleType);
+    this.props.handlePreviousColorscale(this.state.previousColorscale);
   };
 
   updateSwatchNumber = ns => {
