@@ -22,6 +22,7 @@ class App extends Component {
     super(props);
 
     this.onChange = this.onChange.bind(this);
+    this.handleLog = this.handleLog.bind(this);
     this.toggleColorscalePicker = this.toggleColorscalePicker.bind(this);
     this.recolorData = this.recolorData.bind(this);
 
@@ -30,7 +31,8 @@ class App extends Component {
       colorscale: DEFAULT_SCALE,
       data: map.data,
       layout: map.layout,
-      plotType: "map"
+      plotType: "map",
+      log: false,
     };
   }
 
@@ -59,7 +61,14 @@ class App extends Component {
     });
   };
 
+  handleLog = newlog => {
+    this.setState({
+      log : newlog
+    });
+  }
+
   toggleColorscalePicker = () => {
+    console.log(this.state);
     this.setState({ showColorscalePicker: !this.state.showColorscalePicker });
   };
 
@@ -85,7 +94,9 @@ class App extends Component {
         {this.state.showColorscalePicker && (
           <ColorscalePicker
             onChange={this.onChange}
+            handleLog={this.handleLog}
             colorscale={this.state.colorscale}
+            log={this.state.log}
             width={300}
           />
         )}
