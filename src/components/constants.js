@@ -65,6 +65,17 @@ export const BREWER = {
 
 export const BUILTINS = {
   sequential: {
+    Default:[
+      "#0c3383",
+      "#005ea3",
+      "#0a88ba",
+      "#00c199",
+      "#f2d338",
+      "#f6b132",
+      "#f28f38",
+      "#e76124",
+      "#d91e1e"
+    ],
     Viridis: [
       "#440154",
       "#482878",
@@ -562,10 +573,13 @@ export const DEFAULT_GAMMA = 1;
 export const DEFAULT_LIGHTNESS = [0.85, 0.15];
 export const DEFAULT_NCOLORS = 10;
 export const DEFAULT_SWATCHES = 9;
+/*
 export const DEFAULT_SCALE = chroma
   .scale(["#fafa6e", "#2A4858"])
   .mode("lch")
   .colors(DEFAULT_SWATCHES);
+*/
+export const DEFAULT_SCALE = ["#0c3383","#005ea3","#0a88ba","#00c199","#f2d338","#f6b132","#f28f38","#e76124","#d91e1e"]
 export const DEFAULT_LOG_BREAKPOINTS = 4;
 export const DEFAULT_BREAKPOINTS = [0, 1];
 export const DEFAULT_SWATCH_WIDTH = 20;

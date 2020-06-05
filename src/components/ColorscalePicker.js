@@ -98,7 +98,7 @@ export default class ColorscalePicker extends Component {
   }
 
   componentDidMount() {
-    this.setState({colorscaleOnMount: this.props.colorscale});
+    this.setState({colorscaleOnMount: this.props.previousColorscale});
   }
 
   handle = props => {
@@ -118,7 +118,6 @@ export default class ColorscalePicker extends Component {
 
   toggleLog = () => {
     const newlog = !this.state.log;
-    console.log(newlog);
     const cs = getColorscale(
       this.state.previousColorscale,
       this.state.nSwatches,
@@ -129,6 +128,7 @@ export default class ColorscalePicker extends Component {
     this.setState({log: newlog, colorscale: cs});
     this.props.handleLog(newlog);
     this.props.onChange(cs);
+    this.props.handlePreviousColorscale(this.state.previousColorscale);
   };
 
   onClick = (newColorscale, start, rot) => {
@@ -192,6 +192,7 @@ export default class ColorscalePicker extends Component {
       customBreakpoints: DEFAULT_BREAKPOINTS,
     });
     this.props.onChange(cs);
+    this.props.handlePreviousColorscale(this.state.previousColorscale);
   };
 
   updateBreakpoints = e => {
@@ -211,6 +212,7 @@ export default class ColorscalePicker extends Component {
     });
 
     this.props.onChange(cs);
+    this.props.handlePreviousColorscale(this.state.previousColorscale);
   };
 
   updateBreakpointArray = e => {
