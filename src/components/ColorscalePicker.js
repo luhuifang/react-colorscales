@@ -152,6 +152,7 @@ export default class ColorscalePicker extends Component {
       previousColorscale = this.state.previousColorscale;
     }
 
+
     if (!start && !rot) {
       this.setState({
         previousColorscale: previousColorscale,
@@ -175,7 +176,7 @@ export default class ColorscalePicker extends Component {
       });
     }
     this.props.onChange(cs, this.state.colorscaleType);
-    this.props.handlePreviousColorscale(this.state.previousColorscale);
+    this.props.handlePreviousColorscale(previousColorscale);
   };
 
   updateSwatchNumber = ns => {
