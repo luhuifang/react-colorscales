@@ -352,6 +352,7 @@ export default class ColorscalePicker extends Component {
         className={colorscalePickerContainerClassnames}
         style={{width: this.props.width || '300px'}}
       >
+        
         <div className="colorscalePickerTopContainer">
           <Select
             options={colorscaleOptions}
@@ -363,6 +364,8 @@ export default class ColorscalePicker extends Component {
             searchable={false}
           />
         </div>
+        
+        {this.props.disableSwatchControls ? null : this.renderSwatchControls()}
 
         <ColorscalePaletteSelector
           colorscaleType={
@@ -382,8 +385,6 @@ export default class ColorscalePicker extends Component {
           updateBreakpointArray={this.updateBreakpointArray}
           scaleLength={this.props.scaleLength}
         />
-
-        {this.props.disableSwatchControls ? null : this.renderSwatchControls()}
       </div>
     );
   }
